@@ -6,27 +6,29 @@
   "types": "lib/dispose.d.ts",
   "scripts": {
     "test": "npm run build:compile:quick && npx jest bin",
-    "build": "npm run build:compile:full && npm run build:copy",
+    "build": "npm run build:compile:full && npm run build:copy && npm run uglify",
     "build:compile:quick": "tsc",
     "build:compile:full": "tsc --declaration",
     "build:copy": "cpx \"bin/**/!(*.test){*.js,*.d.ts}\" \"lib\"",
-    "prettier": "prettier --write \"src/**/*.ts\""
+    "prettier": "prettier --write \"src/**/*.ts\"",
+    "uglify": "uglifyjs \"lib/dispose.js\" -c -m --toplevel -o lib/dispose.min.js"
   },
   "author": "Jake Tober",
   "license": "MIT",
   "devDependencies": {
-    "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "7.8.3",
     "@babel/preset-env": "7.8.7",
-    "@typescript-eslint/eslint-plugin": "^2.22.0",
-    "@typescript-eslint/parser": "^2.22.0",
+    "@typescript-eslint/eslint-plugin": "2.22.0",
+    "@typescript-eslint/parser": "2.22.0",
     "babel-jest": "25.1.0",
     "cpx": "1.5.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-prettier": "3.1.2",
     "jest": "25.1.0",
-    "prettier": "^1.19.1",
-    "typescript": "3.8.3"
+    "prettier": "1.19.1",
+    "typescript": "3.8.3",
+    "uglify-es": "3.3.9"
   },
   "dependencies": {}
 }
