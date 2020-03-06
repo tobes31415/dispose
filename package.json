@@ -9,7 +9,8 @@
     "build": "npm run build:compile:full && npm run build:copy",
     "build:compile:quick": "tsc",
     "build:compile:full": "tsc --declaration",
-    "build:copy": "cpx \"bin/**/!(*.test){*.js,*.d.ts}\" \"lib\""
+    "build:copy": "cpx \"bin/**/!(*.test){*.js,*.d.ts}\" \"lib\"",
+    "prettier": "prettier --write \"src/**/*.ts\""
   },
   "author": "Jake Tober",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "babel-jest": "25.1.0",
     "cpx": "1.5.0",
     "jest": "25.1.0",
+    "prettier": "^1.19.1",
     "typescript": "3.8.3"
   },
   "dependencies": {}
