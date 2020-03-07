@@ -2,7 +2,7 @@
   "name": "@tobes31415/dispose",
   "version": "1.0.0",
   "description": "Dispose objects using the decorator pattern",
-  "main": "lib/dispose.js",
+  "main": "lib/dispose.min.js",
   "types": "lib/dispose.d.ts",
   "scripts": {
     "test": "npm run build:compile:quick && npx jest bin",
