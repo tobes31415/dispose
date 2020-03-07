@@ -1,9 +1,9 @@
-# dispose
-A tiby library to register callbacks on objects so that they get properly disposed at a later time even if you have complex trees of objects
+# Dispose
+A tiny library to register callbacks on objects so that they get properly disposed at a later time even if you have complex trees of objects
 
 npm install --save @tobes31415/dispose
 
-# Bsic Useage
+# Basic Useage
     import { onDispose, dispose } from "@tobes31415/dispose"
     
     onDispose(foo, () => {
