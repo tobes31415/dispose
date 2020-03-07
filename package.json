@@ -17,7 +17,7 @@
     "apidocs:clean": "rm docs -rf && rm docs_bin -rf",
     "apidocs:typedoc": "typedoc --out docs_bin src/dispose.ts --excludePrivate --excludeNotExported --excludeExternals ",
     "apidocs:copy": "cpx docs_bin/modules/_dispose_.md docs && mv docs/_dispose_.md docs/dispose.md",
-    "apidocs:tidy": "line-replace docs/dispose.md:3 ''"
+    "apidocs:tidy": "line-replace docs/dispose.md:1 '' && line-replace docs/dispose.md:3 '' && replace '_dispose_' 'dispose' docs/dispose.md"
   },
   "keywords": [
     "dispose",
@@ -45,6 +45,7 @@
     "jest": "25.1.0",
     "line-replace": "1.0.3",
     "prettier": "1.19.1",
+    "replace": "1.1.5",
     "typedoc": "^0.16.11",
     "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "3.8.3",
