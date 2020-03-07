@@ -25,7 +25,7 @@ The real advantage comes when you're dealing with large trees of objects and/or 
     
     assertNotDisposed(bar); //throws exception if bar has been disposed
     
-    const baz = createDisposeableFunctionWrapper( (a,b,c) => return a*b + c );
+    const baz = createDisposeableFunctionWrapper( (a,b,c) => a * b + c );
     baz(1,2,3) //outputs 5
     
     dispose(baz);
