@@ -6,12 +6,13 @@
   "types": "lib/dispose.d.ts",
   "scripts": {
     "test": "npm run build:compile:quick && npx jest bin",
-    "build": "npm run build:compile:full && npm run build:copy && npm run uglify",
+    "build": "npm run build:compile:full && npm run build:copy && npm run uglify && npm run flowgen",
     "build:compile:quick": "tsc",
     "build:compile:full": "tsc --declaration",
     "build:copy": "cpx \"bin/**/!(*.test){*.js,*.d.ts}\" \"lib\"",
     "prettier": "prettier --write \"src/**/*.ts\"",
-    "uglify": "uglifyjs \"lib/dispose.js\" -c -m --toplevel -o lib/dispose.min.js"
+    "uglify": "uglifyjs \"lib/dispose.js\" -c -m --toplevel -o \"lib/dispose.min.js\"",
+    "flowgen": "flowgen lib/dispose.d.ts -o lib/dispose.min.js.flow"
   },
   "author": "Jake Tober",
   "license": "MIT",
@@ -25,6 +26,7 @@
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
     "eslint-plugin-prettier": "3.1.2",
+    "flowgen": "1.10.0",
     "jest": "25.1.0",
     "prettier": "1.19.1",
     "typescript": "3.8.3",
