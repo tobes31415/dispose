@@ -31,14 +31,14 @@ export declare function onDisposeChain(objectA: object, objectB: object): void;
 /**
  * Throws an error if the object has been disposed
  * @param object The object to inspect
- * @param message An optional message, otherwise the error will say "Object has been disposed"
+ * @param message The message for the error object
  */
 export declare function assertNotDisposed(object: object, message?: string): void;
 /**
  * Wraps a function so that it can be disposed.  Once disposed the function will no longer execute
  * @param fnRef The function to be wrapped
  * @param message The message to be included in the error if invoked after the wrapper is disposed.  Mutually exclusive with silent
- * @param silent Optional[false] If true attempting to invoke the function after the wrapper has been disposed will fail silently, otherwise it'll throw an exception.  Mutually exclusive with message.
+ * @param silent If true attempting to invoke the function after the wrapper has been disposed will fail silently, otherwise it'll throw an error.  Mutually exclusive with message.
  */
 export declare function createDisposeableFunctionWrapper<T extends Function>(fnRef: T, message?: string, silent?: boolean): T;
 export {};

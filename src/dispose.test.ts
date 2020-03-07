@@ -143,3 +143,15 @@ test("Calling onDispose on an already disposed object immediately invokes the ca
   gc.onDispose(foo, ()=> didInvoke = true);
   expect(didInvoke).toBe(true);
 })
+
+test("Chains of objects do get disposed", () => {
+  const a = {};
+  const b = {};
+  const c = {};
+  gc.onDisposeChain(a,b);
+  gc.onDisposeChain(b,c);
+  let didInvoke = false;
+  gc.onDispose(c, () => didInvoke = true);
+  gc.dispose(a);
+  expect(didInvoke).toBe(true);
+})

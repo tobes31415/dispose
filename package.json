@@ -1,12 +1,13 @@
 {
   "name": "@tobes31415/dispose",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dispose objects using the decorator pattern",
   "main": "lib/dispose.min.js",
   "types": "lib/dispose.d.ts",
   "scripts": {
-    "test": "npm run build:compile:quick && npx jest bin",
-    "build": "npm run build:compile:full && npm run build:copy && npm run uglify && npm run flowgen && npm run apidocs",
+    "test": "npm run build:compile:quick && npm run test:jest",
+    "test:jest": "jest bin",
+    "build": "npm run test && npm run build:compile:full && npm run build:copy && npm run uglify && npm run flowgen && npm run apidocs",
     "build:compile:quick": "tsc",
     "build:compile:full": "tsc --declaration",
     "build:copy": "cpx \"bin/**/!(*.test){*.js,*.d.ts}\" \"lib\"",
