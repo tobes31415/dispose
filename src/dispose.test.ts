@@ -155,3 +155,10 @@ test("Chains of objects do get disposed", () => {
   gc.dispose(a);
   expect(didInvoke).toBe(true);
 })
+
+test.only("Recursively disposing objects with null properties doesn't fail", () => {
+  const subObj = {};
+  const obj = [null, subObj];
+  gc.dispose(obj);
+  expect(gc.isDisposed(subObj)).toBe(true);
+})

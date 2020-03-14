@@ -15,7 +15,7 @@ function tryInvokeFunction(fnRef: action): void {
 
 function forEachChild(object: object, action: action1<any>): void {
   if (Array.isArray(object)) {
-    object.forEach(action);
+    object.filter(i => i).forEach(action);
   } else {
     forEachChild(Object.values(object), action);
   }
