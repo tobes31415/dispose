@@ -20,7 +20,7 @@
 
 ▸ **assertNotDisposed**(`object`: object, `message`: string): *void*
 
-*Defined in [dispose.ts:91](https://github.com/tobes31415/dispose/blob/023e8ae/src/dispose.ts#L91)*
+*Defined in [dispose.ts:91](https://github.com/tobes31415/dispose/blob/dfb44ec/src/dispose.ts#L91)*
 
 Throws an error if the object has been disposed
 
@@ -39,7 +39,7 @@ ___
 
 ▸ **createDisposeableFunctionWrapper**<**T**>(`fnRef`: T, `message`: string, `silent`: boolean): *T*
 
-*Defined in [dispose.ts:103](https://github.com/tobes31415/dispose/blob/023e8ae/src/dispose.ts#L103)*
+*Defined in [dispose.ts:103](https://github.com/tobes31415/dispose/blob/dfb44ec/src/dispose.ts#L103)*
 
 Wraps a function so that it can be disposed.  Once disposed the function will no longer execute
 
@@ -63,7 +63,7 @@ ___
 
 ▸ **dispose**(`object`: object): *void*
 
-*Defined in [dispose.ts:36](https://github.com/tobes31415/dispose/blob/023e8ae/src/dispose.ts#L36)*
+*Defined in [dispose.ts:36](https://github.com/tobes31415/dispose/blob/dfb44ec/src/dispose.ts#L36)*
 
 Disposes an object
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **isDisposed**(`object`: object): *boolean*
 
-*Defined in [dispose.ts:28](https://github.com/tobes31415/dispose/blob/023e8ae/src/dispose.ts#L28)*
+*Defined in [dispose.ts:28](https://github.com/tobes31415/dispose/blob/dfb44ec/src/dispose.ts#L28)*
 
 Returns true if an object has been disposed, otherwise false
 
@@ -99,7 +99,7 @@ ___
 
 ▸ **onDispose**(`object`: object, `fnRef`: action): *void*
 
-*Defined in [dispose.ts:55](https://github.com/tobes31415/dispose/blob/023e8ae/src/dispose.ts#L55)*
+*Defined in [dispose.ts:55](https://github.com/tobes31415/dispose/blob/dfb44ec/src/dispose.ts#L55)*
 
 Attaches a callback that will be invoked when the object is disposed.
 calling onDispose will suppress the default behaviour of recursively disposing, if you want the dispose call to be recursively applied you can either do it manually or cal onDisposeDisposeRecursively to explicitly instruct the object to be disposed.
@@ -120,7 +120,7 @@ ___
 
 ▸ **onDisposeChain**(`objectA`: object, `objectB`: object): *void*
 
-*Defined in [dispose.ts:82](https://github.com/tobes31415/dispose/blob/023e8ae/src/dispose.ts#L82)*
+*Defined in [dispose.ts:82](https://github.com/tobes31415/dispose/blob/dfb44ec/src/dispose.ts#L82)*
 
 When objectA is disposed, objectB will also be disposed
 
@@ -139,7 +139,7 @@ ___
 
 ▸ **onDisposeDisposeRecursively**(`object`: object): *void*
 
-*Defined in [dispose.ts:70](https://github.com/tobes31415/dispose/blob/023e8ae/src/dispose.ts#L70)*
+*Defined in [dispose.ts:70](https://github.com/tobes31415/dispose/blob/dfb44ec/src/dispose.ts#L70)*
 
 Explicitly instructs an object to dispose recursively.  This is actually the default behaviour.  You only need to call this if you need to override the dispoal of an object but still want the dispose to be recursively applied.
 
