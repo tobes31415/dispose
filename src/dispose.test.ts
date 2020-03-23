@@ -162,3 +162,7 @@ test("Recursively disposing objects with null properties doesn't fail", () => {
   gc.dispose(obj);
   expect(gc.isDisposed(subObj)).toBe(true);
 })
+
+test("dispose ignores primitive properties", () => {
+  expect(() => gc.dispose({foo:true})).not.toThrow();
+})

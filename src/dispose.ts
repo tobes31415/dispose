@@ -29,12 +29,16 @@ export function isDisposed(object: object): boolean {
   return !!object[IS_DISPOSED];
 }
 
+function isDisposeable(object: any): boolean {
+  return object !== null && object !== undefined && (typeof object === "object" || typeof object === "function");
+} 
+
 /**
  * Disposes an object
  * @param object The object to be disposed
  */
 export function dispose(object: object): void {
-  if (isDisposed(object)) {
+  if (isDisposed(object) || !isDisposeable(object)) {
     return;
   }
   object[IS_DISPOSED] = true;
