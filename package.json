@@ -1,6 +1,6 @@
 {
   "name": "@tobes31415/dispose",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dispose objects using the decorator pattern",
   "main": "lib/dispose.min.js",
   "types": "lib/dispose.d.ts",
