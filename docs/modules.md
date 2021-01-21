@@ -14,7 +14,6 @@
 - [onDisposeDeleteProperties](modules.md#ondisposedeleteproperties)
 - [onDisposeDisposeProperties](modules.md#ondisposedisposeproperties)
 - [onDisposeUnsubscribe](modules.md#ondisposeunsubscribe)
-- [onNgDestroyDisposeSelf](modules.md#onngdestroydisposeself)
 - [watchForDispose](modules.md#watchfordispose)
 
 ## Functions
@@ -40,7 +39,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:57](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc.ts#L57)
+Defined in: [gc.ts:57](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc.ts#L57)
 
 ___
 
@@ -64,7 +63,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:34](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc.ts#L34)
+Defined in: [gc.ts:34](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc.ts#L34)
 
 ___
 
@@ -88,7 +87,7 @@ Name | Type | Description |
 
 **Returns:** *boolean*
 
-Defined in: [gc.ts:48](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc.ts#L48)
+Defined in: [gc.ts:48](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc.ts#L48)
 
 ___
 
@@ -115,7 +114,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:70](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc.ts#L70)
+Defined in: [gc.ts:70](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc.ts#L70)
 
 ___
 
@@ -141,7 +140,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:84](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc.ts#L84)
+Defined in: [gc.ts:84](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc.ts#L84)
 
 ___
 
@@ -165,7 +164,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:100](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc.ts#L100)
+Defined in: [gc.ts:100](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc.ts#L100)
 
 ___
 
@@ -189,7 +188,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:92](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc.ts#L92)
+Defined in: [gc.ts:92](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc.ts#L92)
 
 ___
 
@@ -214,32 +213,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc-rxjs.ts:46](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc-rxjs.ts#L46)
-
-___
-
-### onNgDestroyDisposeSelf
-
-▸ **onNgDestroyDisposeSelf**<T\>(`angularObject`: T): *void*
-
-When the component/directive/etc is destroyed, trigger a dispose on the same object.
-Allows you to integrate dispose with the angular lifecycle
-
-#### Type parameters:
-
-Name | Type |
------- | ------ |
-`T` | OnDestroy |
-
-#### Parameters:
-
-Name | Type | Description |
------- | ------ | ------ |
-`angularObject` | T | the angular object to be watched    |
-
-**Returns:** *void*
-
-Defined in: [gc-ng.ts:26](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc-ng.ts#L26)
+Defined in: [gc-rxjs.ts:46](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc-rxjs.ts#L46)
 
 ___
 
@@ -263,4 +237,4 @@ Name | Type | Description |
 
 **Returns:** *Observable*<*void*\>
 
-Defined in: [gc-rxjs.ts:25](https://github.com/tobes31415/dispose/blob/47d64f4/src/gc-rxjs.ts#L25)
+Defined in: [gc-rxjs.ts:25](https://github.com/tobes31415/dispose/blob/ce1adcb/src/gc-rxjs.ts#L25)

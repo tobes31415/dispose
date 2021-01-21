@@ -56,7 +56,7 @@ export function isDisposed<T extends object>(object: T): boolean {
  */
 export function assertNotDisposed<T extends object>(object: T, message?: string) {
     if (isDisposed(object)) {
-        throw new Error(message ?? "Object has been disposed");
+        throw new Error(message || "Object has been disposed");
     }
 }
 

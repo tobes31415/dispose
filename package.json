@@ -1,10 +1,18 @@
 {
   "name": "@tobes31415/dispose",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "Dispose objects using the decorator pattern",
   "main": "lib/gc-commonjs.min.js",
-  "module": "lib/gc.js",
-  "types": "lib/gc.d.ts",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports":{
+    "gc": {
+      "import": "./lib/gc.js"
+    },
+    "rxjs": {
+      "import": "./lib/gc-rxjs.js"
+    }
+  },
   "scripts": {
     "test": "run-s build:compile test:jest",
     "test:jest": "jest bin",
@@ -19,7 +27,6 @@
     "bundle-esm": "esbuild src/*.ts --format=esm --outdir=lib",
     "flowgen": "run-p flowgen:*",
     "flowgen:gc": "flowgen flow/gc.d.ts -o lib/gc-commonjs.min.js.flow",
-    "flowgen:ng": "flowgen flow/gc-ng.d.ts -o lib/gc-ng.js.flow",
     "flowgen:rxjs": "flowgen flow/gc-rxjs.d.ts -o lib/gc-rxjs.js.flow",
     "flowgen:index": "flowgen flow/index.d.ts -o lib/index.js.flow",
     "apidocs": "run-s apidocs:clean:* apidocs:typedoc apidocs:copy",
@@ -68,11 +75,9 @@
     "typedoc-plugin-markdown": "^3.4.1",
     "typescript": "~4.0.2",
     "uglify-es": "^3.3.9",
-    "@angular/core": "^11.1.0",
     "@types/jest": "^26.0.20"
   },
   "peerDependencies": {
-    "@angular/core": "~11.1.0",
     "rxjs": "^6.6.3"
   },
   "dependencies": {
