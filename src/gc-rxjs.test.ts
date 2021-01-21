@@ -25,4 +25,13 @@ describe("gc", () => {
         expect(A).toBe(B);
         gc.dispose(foo);
     });
+
+    it("Completes after disposing", () => {
+        const sub = gc_rxjs.watchForDispose(foo);
+        const dummy = () => {};
+        sub.subscribe(dummy, dummy, spy);
+        expect(spy).not.toHaveBeenCalled();
+        gc.dispose(foo);
+        expect(spy).toHaveBeenCalled();
+    })
 });

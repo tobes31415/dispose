@@ -33,9 +33,14 @@ export function watchForDispose<T extends object>(object: T): Observable<void> {
     const subject = new Subject<void>();
 
     meta.observable = subject;
-    gc.onDispose(object, subject.next.bind(subject));
+    gc.onDispose(object, emitAndComplete.bind(null, subject));
     gc.onDispose(object, deleteMeta.bind(null, object));
     return meta.observable;
+}
+
+function emitAndComplete(subject: Subject<void>) {
+    subject.next();
+    subject.complete();
 }
 
 /**
