@@ -1,16 +1,13 @@
 {
   "name": "@tobes31415/dispose",
-  "version": "2.0.5",
+  "version": "3.0.0",
   "description": "Dispose objects using the decorator pattern",
   "main": "lib/gc-commonjs.min.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
-  "exports":{
+  "exports": {
     "gc": {
       "import": "./lib/gc.js"
-    },
-    "rxjs": {
-      "import": "./lib/gc-rxjs.js"
     }
   },
   "scripts": {
@@ -23,11 +20,10 @@
     "build:copy:dts": "cpy \"bin/**/*.d.ts\" \"lib\"",
     "build:remove-tests": "del-cli lib/*test*",
     "prettier": "prettier --write \"src/**/*.ts\"",
-    "bundle-cjs": "esbuild src/index.ts --external:rxjs --minify --format=cjs --bundle --outfile=lib/gc-commonjs.min.js",
+    "bundle-cjs": "esbuild src/index.ts --minify --format=cjs --bundle --outfile=lib/gc-commonjs.min.js",
     "bundle-esm": "esbuild src/*.ts --format=esm --outdir=lib",
     "flowgen": "run-p flowgen:*",
     "flowgen:gc": "flowgen flow/gc.d.ts -o lib/gc-commonjs.min.js.flow",
-    "flowgen:rxjs": "flowgen flow/gc-rxjs.d.ts -o lib/gc-rxjs.js.flow",
     "flowgen:index": "flowgen flow/index.d.ts -o lib/index.js.flow",
     "apidocs": "run-s apidocs:clean:* apidocs:typedoc apidocs:copy",
     "apidocs:clean:docs": "del-cli docs",
@@ -77,9 +73,6 @@
     "uglify-es": "^3.3.9",
     "@types/jest": "^26.0.20"
   },
-  "peerDependencies": {
-    "rxjs": "^6.6.3"
-  },
-  "dependencies": {
-  }
+  "peerDependencies": {},
+  "dependencies": {}
 }

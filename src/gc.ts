@@ -126,3 +126,16 @@ function disposeProperty({ value }: PropInfo) {
         dispose(value);
     }
 }
+
+interface Subscription {
+    unsubscribe: () => void;
+}
+
+/**
+ * When the object is disposed, unsubscribe from the subscription
+ * @param object The object to be watched
+ * @param subscription The subscription that will be automatically unsubscribed
+ */
+export function onDisposeUnsubscribe<T extends object>(object: T, subscription: Subscription) {
+    onDispose(object, subscription.unsubscribe.bind(subscription));
+}
