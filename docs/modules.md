@@ -38,7 +38,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:57](https://github.com/tobes31415/dispose/blob/d29f9dd/src/gc.ts#L57)
+Defined in: [gc.ts:57](https://github.com/tobes31415/dispose/blob/8e24356/src/gc.ts#L57)
 
 ___
 
@@ -62,7 +62,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:34](https://github.com/tobes31415/dispose/blob/d29f9dd/src/gc.ts#L34)
+Defined in: [gc.ts:34](https://github.com/tobes31415/dispose/blob/8e24356/src/gc.ts#L34)
 
 ___
 
@@ -86,7 +86,7 @@ Name | Type | Description |
 
 **Returns:** *boolean*
 
-Defined in: [gc.ts:48](https://github.com/tobes31415/dispose/blob/d29f9dd/src/gc.ts#L48)
+Defined in: [gc.ts:48](https://github.com/tobes31415/dispose/blob/8e24356/src/gc.ts#L48)
 
 ___
 
@@ -113,7 +113,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:70](https://github.com/tobes31415/dispose/blob/d29f9dd/src/gc.ts#L70)
+Defined in: [gc.ts:70](https://github.com/tobes31415/dispose/blob/8e24356/src/gc.ts#L70)
 
 ___
 
@@ -139,7 +139,7 @@ Name | Type |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:84](https://github.com/tobes31415/dispose/blob/d29f9dd/src/gc.ts#L84)
+Defined in: [gc.ts:84](https://github.com/tobes31415/dispose/blob/8e24356/src/gc.ts#L84)
 
 ___
 
@@ -163,7 +163,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:100](https://github.com/tobes31415/dispose/blob/d29f9dd/src/gc.ts#L100)
+Defined in: [gc.ts:100](https://github.com/tobes31415/dispose/blob/8e24356/src/gc.ts#L100)
 
 ___
 
@@ -187,7 +187,7 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:92](https://github.com/tobes31415/dispose/blob/d29f9dd/src/gc.ts#L92)
+Defined in: [gc.ts:92](https://github.com/tobes31415/dispose/blob/8e24356/src/gc.ts#L92)
 
 ___
 
@@ -212,4 +212,4 @@ Name | Type | Description |
 
 **Returns:** *void*
 
-Defined in: [gc.ts:139](https://github.com/tobes31415/dispose/blob/d29f9dd/src/gc.ts#L139)
+Defined in: [gc.ts:139](https://github.com/tobes31415/dispose/blob/8e24356/src/gc.ts#L139)
