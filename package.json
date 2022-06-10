@@ -1,6 +1,6 @@
 {
   "name": "@tobes31415/dispose",
-  "version": "4.0.1",
+  "version": "4.0.3",
   "description": "Dispose objects using the decorator pattern",
   "main": "lib/gc-commonjs.min.js",
   "module": "lib/index.js",
@@ -21,7 +21,7 @@
     "build:remove-tests": "del-cli lib/*test*",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "bundle-cjs": "esbuild src/index.ts --minify --format=cjs --bundle --outfile=lib/gc-commonjs.min.js",
-    "bundle-esm": "esbuild src/*.ts --format=esm --outdir=lib",
+    "bundle-esm": "esbuild src/index.ts src/gc.ts --format=esm --outdir=lib",
     "flowgen": "run-p flowgen:*",
     "flowgen:gc": "flowgen flow/gc.d.ts -o lib/gc-commonjs.min.js.flow",
     "flowgen:index": "flowgen flow/index.d.ts -o lib/index.js.flow",
