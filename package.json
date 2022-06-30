@@ -1,12 +1,13 @@
 {
   "name": "@tobes31415/dispose",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "Dispose objects using the decorator pattern",
   "main": "lib/gc-commonjs.min.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "exports": {
     ".": {
+      "require": "./lib/gc-commonjs.min.js",
       "import": "./lib/gc.js"
     }
   },
