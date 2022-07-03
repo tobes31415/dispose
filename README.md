@@ -6,14 +6,18 @@ The real advantage comes when you're dealing with large trees of objects and/or 
 [View API Docs](docs/modules.md)
 
 # Installation
-    npm install --save @tobes31415/dispose
+```
+npm install --save @tobes31415/dispose
+```
 
 # Basic Useage
-    import { onDispose, dispose } from "@tobes31415/dispose"
-    
-    onDispose(foo, () => {
-      //release resources
-      //disconnect from servers, etc
-    });
-    
-    dispose(foo);
+```
+import { onDispose, dispose } from "@tobes31415/dispose"
+
+onDispose(foo, () => {
+  //release resources
+  //disconnect from servers, etc
+});
+
+dispose(foo);
+```
