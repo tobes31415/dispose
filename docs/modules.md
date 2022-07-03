@@ -19,197 +19,197 @@
 
 ### assertNotDisposed
 
-▸ **assertNotDisposed**<T\>(`object`: T, `message?`: *string*): *void*
+▸ **assertNotDisposed**<`T`\>(`object`, `message?`): `void`
 
 Throws an error if the object has been disposed
 
-#### Type parameters:
+#### Type parameters
 
-Name | Type |
------- | ------ |
-`T` | *object* |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
 
-#### Parameters:
+#### Parameters
 
-Name | Type | Description |
------- | ------ | ------ |
-`object` | T | The object to inspect   |
-`message?` | *string* | The message for the error object    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `object` | `T` | The object to inspect |
+| `message?` | `string` | The message for the error object |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [gc.ts:57](https://github.com/tobes31415/dispose/blob/21958e9/src/gc.ts#L57)
+`void`
 
 ___
 
 ### dispose
 
-▸ **dispose**<T\>(`object`: T): *void*
+▸ **dispose**<`T`\>(`object`): `void`
 
 Disposes an object
 
-#### Type parameters:
+#### Type parameters
 
-Name | Type |
------- | ------ |
-`T` | *object* |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
 
-#### Parameters:
+#### Parameters
 
-Name | Type | Description |
------- | ------ | ------ |
-`object` | T | The object to be disposed    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `object` | `T` | The object to be disposed |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [gc.ts:34](https://github.com/tobes31415/dispose/blob/21958e9/src/gc.ts#L34)
+`void`
 
 ___
 
 ### isDisposed
 
-▸ **isDisposed**<T\>(`object`: T): *boolean*
+▸ **isDisposed**<`T`\>(`object`): `boolean`
 
 Returns true if an object has been disposed, otherwise false
 
-#### Type parameters:
+#### Type parameters
 
-Name | Type |
------- | ------ |
-`T` | *object* |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
 
-#### Parameters:
+#### Parameters
 
-Name | Type | Description |
------- | ------ | ------ |
-`object` | T | The object to be inspected    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `object` | `T` | The object to be inspected |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [gc.ts:48](https://github.com/tobes31415/dispose/blob/21958e9/src/gc.ts#L48)
+`boolean`
 
 ___
 
 ### onDispose
 
-▸ **onDispose**<T\>(`object`: T, `action`: Action): *void*
+▸ **onDispose**<`T`\>(`object`, `action`): `void`
 
 Attaches a callback that will be invoked when the object is disposed.
 calling onDispose will suppress the default behaviour of recursively disposing, if you want the dispose call to be recursively applied you can either do it manually or cal onDisposeDisposeRecursively to explicitly instruct the object to be disposed.
 The timing of callback functions is guarenteed only in the context of a single object.  If two or more objects get disposed at the same time then the callbacks might be interlaced.
 
-#### Type parameters:
+#### Type parameters
 
-Name | Type |
------- | ------ |
-`T` | *object* |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
 
-#### Parameters:
+#### Parameters
 
-Name | Type | Description |
------- | ------ | ------ |
-`object` | T | The object to subscribe to   |
-`action` | Action | - |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `object` | `T` | The object to subscribe to |
+| `action` | `Action` | - |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [gc.ts:70](https://github.com/tobes31415/dispose/blob/21958e9/src/gc.ts#L70)
+`void`
 
 ___
 
 ### onDisposeChain
 
-▸ **onDisposeChain**<T1, T2\>(`triger`: T1, `trigee`: T2): *void*
+▸ **onDisposeChain**<`T1`, `T2`\>(`triger`, `trigee`): `void`
 
 When objectA is disposed, objectB will also be disposed
 
-#### Type parameters:
+#### Type parameters
 
-Name | Type |
------- | ------ |
-`T1` | *object* |
-`T2` | *object* |
+| Name | Type |
+| :------ | :------ |
+| `T1` | extends `object` |
+| `T2` | extends `object` |
 
-#### Parameters:
+#### Parameters
 
-Name | Type |
------- | ------ |
-`triger` | T1 |
-`trigee` | T2 |
+| Name | Type |
+| :------ | :------ |
+| `triger` | `T1` |
+| `trigee` | `T2` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [gc.ts:84](https://github.com/tobes31415/dispose/blob/21958e9/src/gc.ts#L84)
+`void`
 
 ___
 
 ### onDisposeDeleteProperties
 
-▸ **onDisposeDeleteProperties**<T\>(`object`: T): *void*
+▸ **onDisposeDeleteProperties**<`T`\>(`object`): `void`
 
 When the object is disposed, clear and delete it's properties
 
-#### Type parameters:
+#### Type parameters
 
-Name | Type |
------- | ------ |
-`T` | *object* |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
 
-#### Parameters:
+#### Parameters
 
-Name | Type | Description |
------- | ------ | ------ |
-`object` | T | The object to be watched    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `object` | `T` | The object to be watched |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [gc.ts:100](https://github.com/tobes31415/dispose/blob/21958e9/src/gc.ts#L100)
+`void`
 
 ___
 
 ### onDisposeDisposeProperties
 
-▸ **onDisposeDisposeProperties**<T\>(`object`: T): *void*
+▸ **onDisposeDisposeProperties**<`T`\>(`object`): `void`
 
 When the object is disposed, enumerate it's properties and call dispose on them
 
-#### Type parameters:
+#### Type parameters
 
-Name | Type |
------- | ------ |
-`T` | *object* |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
 
-#### Parameters:
+#### Parameters
 
-Name | Type | Description |
------- | ------ | ------ |
-`object` | T | The object to be watched    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `object` | `T` | The object to be watched |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [gc.ts:92](https://github.com/tobes31415/dispose/blob/21958e9/src/gc.ts#L92)
+`void`
 
 ___
 
 ### onDisposeUnsubscribe
 
-▸ **onDisposeUnsubscribe**<T\>(`object`: T, `subscription`: Subscription): *void*
+▸ **onDisposeUnsubscribe**<`T`\>(`object`, `subscription`): `void`
 
 When the object is disposed, unsubscribe from the subscription
 
-#### Type parameters:
+#### Type parameters
 
-Name | Type |
------- | ------ |
-`T` | *object* |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
 
-#### Parameters:
+#### Parameters
 
-Name | Type | Description |
------- | ------ | ------ |
-`object` | T | The object to be watched   |
-`subscription` | Subscription | The subscription that will be automatically unsubscribed    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `object` | `T` | The object to be watched |
+| `subscription` | `Subscription` | The subscription that will be automatically unsubscribed |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [gc.ts:139](https://github.com/tobes31415/dispose/blob/21958e9/src/gc.ts#L139)
+`void`
