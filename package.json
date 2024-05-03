@@ -1,6 +1,6 @@
 {
   "name": "@tobes31415/dispose",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Dispose objects using the decorator pattern",
   "type": "module",
   "files": [
