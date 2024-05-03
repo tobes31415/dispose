@@ -43,8 +43,11 @@
     "apidocs:clean": "del-cli docs",
     "apidocs:typedoc": "typedoc  --plugin typedoc-plugin-markdown --out docs src/index.ts --excludePrivate --excludeExternals ",
     "": "",
-    "prettier": "prettier --write \"src/**/*.ts\"",
-    "eslint": "eslint --fix ./src/*"
+    "prettier": "prettier --write ./src/*",
+    "eslint": "eslint --fix ./src/*",
+    "assert-prettier": "prettier --check ./src/*",
+    "assert-eslint": "eslint ./src/*",
+    "pre-commit": "run-p assert-prettier assert-eslint"
   },
   "keywords": [
     "dispose",
