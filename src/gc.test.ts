@@ -1,5 +1,5 @@
 import * as gc from './gc';
-import expect from "expect.js";
+import { describe, beforeEach, test, expect} from "vitest";
 
 describe("gc", () => {
     let foo: {abc: number, sub: { ghi: number }};
@@ -14,53 +14,53 @@ describe("gc", () => {
         callCount = 0;
     })
 
-    it ("invokes the dispose function", () => {
+    test("invokes the dispose function", () => {
         gc.onDispose(foo, spy);
         expect(callCount).to.equal(0);
         gc.dispose(foo);
         expect(callCount).to.equal(1);
     });
 
-    it ("returns true when object is disposed", () => {
-        expect(gc.isDisposed(foo)).to.be(false);
+    test("returns true when object is disposed", () => {
+        expect(gc.isDisposed(foo)).toBe(false);
         gc.dispose(foo);
-        expect(gc.isDisposed(foo)).to.be(true);
+        expect(gc.isDisposed(foo)).toBe(true);
     });
 
-    it ("Only throw if asserting on disposed object", () => {
-        expect(() => gc.assertNotDisposed(foo)).to.not.throwError();
+    test("Only throw if asserting on disposed object", () => {
+        expect(() => gc.assertNotDisposed(foo)).not.toThrowError();
         gc.dispose(foo);
-        expect(() => gc.assertNotDisposed(foo)).to.throwError();
+        expect(() => gc.assertNotDisposed(foo)).toThrowError();
     });
 
-    it("Chains dispose", () => {
+    test("Chains dispose", () => {
         gc.onDisposeChain(foo, bar);
         gc.dispose(foo);
-        expect(gc.isDisposed(bar)).to.be(true);
+        expect(gc.isDisposed(bar)).toBe(true);
     });
 
-    it("Deletes Properties", () => {
+    test("Deletes Properties", () => {
         gc.onDisposeDeleteProperties(foo);
-        expect(foo.abc).to.be.ok();
+        expect(foo.abc).toBeTruthy();
         gc.dispose(foo);
         expect(foo.abc as any).to.equal(undefined);
     });
 
-    it ("Disposes Properties", () => {
+    test("Disposes Properties", () => {
         gc.onDisposeDisposeProperties(foo);
-        expect(gc.isDisposed(foo.sub)).to.be(false);
+        expect(gc.isDisposed(foo.sub)).toBe(false);
         gc.dispose(foo);
-        expect(gc.isDisposed(foo.sub)).to.be(true);
+        expect(gc.isDisposed(foo.sub)).toBe(true);
     });
 
-    it("Triggers dispose action immedietly if already disposed", () => {
+    test("Triggers dispose action immedietly if already disposed", () => {
         gc.dispose(foo);
         expect(callCount).to.equal(0);
         gc.onDispose(foo, spy);
         expect(callCount).to.equal(1);
     });
 
-    it("Only disposes an object once", () => {
+    test("Only disposes an object once", () => {
         gc.onDispose(foo, spy);
         expect(callCount).to.equal(0);
         gc.dispose(foo);

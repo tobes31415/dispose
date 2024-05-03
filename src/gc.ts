@@ -1,4 +1,7 @@
-type Action = () => void;
+/**
+ * An action is any function which can be invoked synchronously and will not return any value
+ */
+export type Action = () => void;
 
 interface PropInfo {
     key: string;
@@ -65,7 +68,7 @@ export function assertNotDisposed<T extends object>(object: T, message?: string)
  * calling onDispose will suppress the default behaviour of recursively disposing, if you want the dispose call to be recursively applied you can either do it manually or cal onDisposeDisposeRecursively to explicitly instruct the object to be disposed.
  * The timing of callback functions is guarenteed only in the context of a single object.  If two or more objects get disposed at the same time then the callbacks might be interlaced.
  * @param object The object to subscribe to
- * @param fnRef A callback function that will be invoked when the object is disposed
+ * @param action A callback function that will be invoked when the object is disposed
  */
 export function onDispose<T extends object>(object: T, action: Action) {
     const meta = getMeta(object);
@@ -78,11 +81,11 @@ export function onDispose<T extends object>(object: T, action: Action) {
 
 /**
  * When objectA is disposed, objectB will also be disposed
- * @param objectA The object to be watched
- * @param objectB The object to chain the dipose to
+ * @param trigger The object to be watched
+ * @param triggee The object to chain the dipose to
  */
-export function onDisposeChain<T1 extends object, T2 extends object>(triger: T1, trigee: T2) {
-    onDispose(triger, dispose.bind(null, trigee));
+export function onDisposeChain<T1 extends object, T2 extends object>(trigger: T1, triggee: T2) {
+    onDispose(trigger, dispose.bind(null, triggee));
 }
 
 /**
@@ -127,7 +130,10 @@ function disposeProperty({ value }: PropInfo) {
     }
 }
 
-interface Subscription {
+/**
+ * An object receipt from a call to subscribe.  This object is used to unsubscribe
+ */
+export interface Subscription {
     unsubscribe: () => void;
 }
 
