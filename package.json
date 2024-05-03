@@ -17,7 +17,7 @@
   },
   "scripts": {
     "clean": "run-p pre-clean post-clean",
-    "pre-clean" : "run-p pre-clean:*",
+    "pre-clean": "run-p pre-clean:*",
     "post-clean": "run-p post-clean:*",
     "pre-clean:docs": "del-cli docs",
     "pre-clean:lib": "del-cli lib",
@@ -26,7 +26,7 @@
     "post-clean:flow": "del-cli flow",
     "assemble": "run-s build-and-test bundle type-defs apidocs post-clean",
     "build": "run-s clean build:tsc build:fix-imports:b",
-    "build-and-test":"run-s build test:vitest",
+    "build-and-test": "run-s build test:vitest",
     "test:vitest": "vitest run bin",
     "build:tsc": "tsc --declaration",
     "build:fix-imports:b": "fix-tsc-esnext-imports bin",
@@ -43,7 +43,8 @@
     "apidocs:clean": "del-cli docs",
     "apidocs:typedoc": "typedoc  --plugin typedoc-plugin-markdown --out docs src/index.ts --excludePrivate --excludeExternals ",
     "": "",
-    "prettier": "prettier --write \"src/**/*.ts\""
+    "prettier": "prettier --write \"src/**/*.ts\"",
+    "eslint": "eslint --fix ./src/*"
   },
   "keywords": [
     "dispose",
@@ -59,16 +60,21 @@
   "author": "Jake Tober",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.2.0",
     "cpy-cli": "^5.0.0",
     "del-cli": "^5.1.0",
     "esbuild": "^0.20.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "fix-tsc-esnext-imports": "^1.0.5",
     "flowgen": "^1.21.0",
+    "globals": "^15.1.0",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "typedoc": "^0.25.13",
     "typedoc-plugin-markdown": "^4.0.0",
     "typescript": "^5.4.5",
+    "typescript-eslint": "^7.8.0",
     "vitest": "^1.6.0"
   }
 }

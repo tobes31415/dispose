@@ -4,30 +4,30 @@
 export type Action = () => void;
 
 interface PropInfo {
-    key: string;
-    value: any;
-    object: any;
+  key: string;
+  value: any;
+  object: any;
 }
 type PropAction = (prop: PropInfo) => void;
 
 interface GC_MetaData {
-    isDisposed?: boolean;
-    onDispose: Action[];
+  isDisposed?: boolean;
+  onDispose: Action[];
 }
 
 const GC_META: unique symbol = Symbol("gc");
 
 function getMeta(object: any): GC_MetaData {
-    if (!object[GC_META]) {
-        object[GC_META] = {
-            onDispose: []
-        };
-    }
-    return object[GC_META];
+  if (!object[GC_META]) {
+    object[GC_META] = {
+      onDispose: [],
+    };
+  }
+  return object[GC_META];
 }
 
 function cleanUpMeta(meta: GC_MetaData) {
-    delete (meta as any).onDispose;
+  delete (meta as any).onDispose;
 }
 
 /**
@@ -35,13 +35,13 @@ function cleanUpMeta(meta: GC_MetaData) {
  * @param object The object to be disposed
  */
 export function dispose<T extends object>(object: T): void {
-    const meta = getMeta(object);
-    if (meta.isDisposed) {
-        return;
-    }
-    meta.isDisposed = true;
-    meta.onDispose.forEach(safeInvoke);
-    cleanUpMeta(meta);
+  const meta = getMeta(object);
+  if (meta.isDisposed) {
+    return;
+  }
+  meta.isDisposed = true;
+  meta.onDispose.forEach(safeInvoke);
+  cleanUpMeta(meta);
 }
 
 /**
@@ -49,7 +49,7 @@ export function dispose<T extends object>(object: T): void {
  * @param object The object to be inspected
  */
 export function isDisposed<T extends object>(object: T): boolean {
-    return !!(getMeta(object)).isDisposed;
+  return !!getMeta(object).isDisposed;
 }
 
 /**
@@ -57,10 +57,13 @@ export function isDisposed<T extends object>(object: T): boolean {
  * @param object The object to inspect
  * @param message The message for the error object
  */
-export function assertNotDisposed<T extends object>(object: T, message?: string) {
-    if (isDisposed(object)) {
-        throw new Error(message || "Object has been disposed");
-    }
+export function assertNotDisposed<T extends object>(
+  object: T,
+  message?: string,
+) {
+  if (isDisposed(object)) {
+    throw new Error(message || "Object has been disposed");
+  }
 }
 
 /**
@@ -71,12 +74,12 @@ export function assertNotDisposed<T extends object>(object: T, message?: string)
  * @param action A callback function that will be invoked when the object is disposed
  */
 export function onDispose<T extends object>(object: T, action: Action) {
-    const meta = getMeta(object);
-    if (meta.isDisposed) {
-        safeInvoke(action);
-    } else {
-        meta.onDispose.push(action);
-    }
+  const meta = getMeta(object);
+  if (meta.isDisposed) {
+    safeInvoke(action);
+  } else {
+    meta.onDispose.push(action);
+  }
 }
 
 /**
@@ -84,8 +87,11 @@ export function onDispose<T extends object>(object: T, action: Action) {
  * @param trigger The object to be watched
  * @param triggee The object to chain the dipose to
  */
-export function onDisposeChain<T1 extends object, T2 extends object>(trigger: T1, triggee: T2) {
-    onDispose(trigger, dispose.bind(null, triggee));
+export function onDisposeChain<T1 extends object, T2 extends object>(
+  trigger: T1,
+  triggee: T2,
+) {
+  onDispose(trigger, dispose.bind(null, triggee));
 }
 
 /**
@@ -93,7 +99,7 @@ export function onDisposeChain<T1 extends object, T2 extends object>(trigger: T1
  * @param object The object to be watched
  */
 export function onDisposeDisposeProperties<T extends object>(object: T) {
-    onDispose(object, forEachProperty.bind(null, object, disposeProperty));
+  onDispose(object, forEachProperty.bind(null, object, disposeProperty));
 }
 
 /**
@@ -101,40 +107,51 @@ export function onDisposeDisposeProperties<T extends object>(object: T) {
  * @param object The object to be watched
  */
 export function onDisposeDeleteProperties<T extends object>(object: T) {
-    onDispose(object, forEachProperty.bind(null, object, deleteProperty));
+  onDispose(object, forEachProperty.bind(null, object, deleteProperty));
 }
 
-
 function safeInvoke(action: Action) {
-    try {
-        action();
-    }
-    catch (err: any) {
-        console.error("error occured inside a dispose handler", (err.message || "" + err));
-        console.log(err);
-    }
+  try {
+    action();
+  } catch (err: any) {
+    console.error(
+      "error occured inside a dispose handler",
+      err.message || "" + err,
+    );
+    console.log(err);
+  }
 }
 
 function forEachProperty(object: any, action: PropAction) {
-    Object.entries(object).forEach(([key, value]: [key: string, value: any]) => action({ key, value, object }));
+  Object.entries(object).forEach(([key, value]: [key: string, value: any]) =>
+    action({ key, value, object }),
+  );
 }
 
 function deleteProperty({ key, object }: PropInfo) {
-    try { object[key] = undefined; } catch (ignored) { }
-    try { delete object[key]; } catch (ignored) { }
+  try {
+    object[key] = undefined;
+  } catch (ignored) {
+    //do nothing
+  }
+  try {
+    delete object[key];
+  } catch (ignored) {
+    //do nothing
+  }
 }
 
 function disposeProperty({ value }: PropInfo) {
-    if (typeof value === "object") {
-        dispose(value);
-    }
+  if (typeof value === "object") {
+    dispose(value);
+  }
 }
 
 /**
  * An object receipt from a call to subscribe.  This object is used to unsubscribe
  */
 export interface Subscription {
-    unsubscribe: () => void;
+  unsubscribe: () => void;
 }
 
 /**
@@ -142,6 +159,9 @@ export interface Subscription {
  * @param object The object to be watched
  * @param subscription The subscription that will be automatically unsubscribed
  */
-export function onDisposeUnsubscribe<T extends object>(object: T, subscription: Subscription) {
-    onDispose(object, subscription.unsubscribe.bind(subscription));
+export function onDisposeUnsubscribe<T extends object>(
+  object: T,
+  subscription: Subscription,
+) {
+  onDispose(object, subscription.unsubscribe.bind(subscription));
 }
