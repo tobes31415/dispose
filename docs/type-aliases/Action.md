@@ -16,4 +16,4 @@ An action is any function which can be invoked synchronously and will not return
 
 ## Source
 
-[gc.ts:4](https://github.com/tobes31415/dispose/blob/8b821ba54eb1fd6736de9a4ab9b915563840a838/src/gc.ts#L4)
+[gc.ts:4](https://github.com/tobes31415/dispose/blob/bcfd41f014b1be28cdb1b562046ef05a00a09f24/src/gc.ts#L4)

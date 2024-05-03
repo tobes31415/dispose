@@ -32,4 +32,4 @@ The object to chain the dipose to
 
 ## Source
 
-[gc.ts:87](https://github.com/tobes31415/dispose/blob/8b821ba54eb1fd6736de9a4ab9b915563840a838/src/gc.ts#L87)
+[gc.ts:90](https://github.com/tobes31415/dispose/blob/bcfd41f014b1be28cdb1b562046ef05a00a09f24/src/gc.ts#L90)
